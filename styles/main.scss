@@ -3,48 +3,66 @@
 |  Global variables
 |------------------------------------------
 */
+
+$imgpath: '../images/';
+
 /*
 |------------------------------------------
 |  Global 
 |------------------------------------------
 */
+
+
+
 /*
 |------------------------------------------
 |  header
 |------------------------------------------
 */
-.header {
-  text-align: center;
-  padding: 1rem; }
+
+.header{
+    text-align: center;
+    padding: 1rem;
+}
 
 h1 {
-  font-size: 2rem; }
+    font-size: 2rem;
+}
+
 
 /*
 |------------------------------------------
 |  button
 |------------------------------------------
 */
+
 .choice {
-  display: flex; }
+    display: flex;
+}
 
 .choice button {
-  width: 90px;
-  height: 90px;
-  margin: 10px; }
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+}
 
 .rock {
-  background-image: url("../images/rock-1200px_1200px.png"); }
+    background-image: url('#{$imgpath}rock-1200px_1200px.png');
+    
+}
 
 .scissors {
-  background-image: url("../images/paper-1200px_1200px.png"); }
+    background-image: url('#{$imgpath}paper-1200px_1200px.png');
+   
+}
 
 .paper {
-  background-image: url("../images/scissors-1200px_1200px.png"); }
-
+    background-image: url('#{$imgpath}scissors-1200px_1200px.png');
+    
+}
 .rock,
 .scissors,
 .paper {
-  background-size: contain; }
+    background-size: contain;
+}
 
-/*# sourceMappingURL=main.css.map */
