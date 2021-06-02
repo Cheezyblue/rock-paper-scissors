@@ -36,19 +36,6 @@
 
             const playerchoice = document.getElementById('choice');
 
-
-
-            // function that captures the users choices
-            // choices range from rock, paper, scissors
-            function playerPlay(choice) {
-
-                // giving the player Answer a variable to hold it
-                let playerAnswer = choice;
-            
-                return playerAnswer;
-
-            }
-
             // created an array to call the computer's choice
             function computerPlay() {
 
@@ -62,15 +49,28 @@
 
             }
 
-            function playRound(playerSelection, computerSelection) {
+            function playRound(playerAnswer, computerSelection) {
+                
+                if (playerAnswer == 'rock' && computerSelection == 'scissors') {
+                    console.log('player wins');
+                }
+                else if (playerAnswer == 'paper' && computerSelection == 'rock') {
+                    console.log('player wins');
+                }
+                else if (playerAnswer == 'scissors' && computerSelection == 'paper') {
+                    console.log('player wins');
+                }
+                else {
+                    console.log('computer wins');
+                }
 
             }
             
-            let computerSelection = computerPlay();
+            const computerSelection = computerPlay();
 
             // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
 
-            let playerSelection = choice.addEventListener('click', (event) => {
+            const playerSelection = choice.addEventListener('click', (event) => {
 
                 // Making sure that we are clicking and targetting the buttons within the choice div
                 // return if it didn't catch the button node Name
@@ -80,11 +80,15 @@
                 }
                 // storing the event target id which should be the choices
                 let playerAnswer = event.target.id
-
+                let type = typeof playerAnswer;
+                console.log(type);
+                
+                console.log(playerAnswer);
+                playRound(playerAnswer, computerSelection);
             })
 
+           
             console.log(computerSelection);
-
             
 
 
