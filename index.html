@@ -18,7 +18,11 @@
         <main>
             <section>
                 <h1>Rock-Paper-Scissors</h1>
-                <div></div>
+                <div id="choice">
+                    <button id="rock" value="rock">Rock</button>
+                    <button id="paper" value="paper">Paper</button>
+                    <button id="scissors" value="scissors">Scissors</button>
+                </div>
             </section>
         </main>
         <footer>
@@ -28,7 +32,23 @@
             
             // This array will always be these 3 choices
             const computerChoice = ["rock", "paper", "scissors"];
+
+
+            const playerchoice = document.getElementById('choice');
+
+
+
+            // function that captures the users choices
+            // choices range from rock, paper, scissors
+            function playerPlay(choice) {
+
+                // giving the player Answer a variable to hold it
+                let playerAnswer = choice;
             
+                return playerAnswer;
+
+            }
+
             // created an array to call the computer's choice
             function computerPlay() {
 
@@ -42,12 +62,31 @@
 
             }
 
-            console.log(computerPlay());
-
-            
             function playRound(playerSelection, computerSelection) {
 
             }
+            
+            let computerSelection = computerPlay();
+
+            // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
+
+            let playerSelection = choice.addEventListener('click', (event) => {
+
+                // Making sure that we are clicking and targetting the buttons within the choice div
+                // return if it didn't catch the button node Name
+                const isButton = event.target.nodeName === 'BUTTON';
+                if (!isButton) {
+                    return;
+                }
+                // storing the event target id which should be the choices
+                let playerAnswer = event.target.id
+
+            })
+
+            console.log(computerSelection);
+
+            
+
 
 
 
