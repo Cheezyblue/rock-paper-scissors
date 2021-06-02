@@ -29,66 +29,90 @@
 
         </footer>
         <script>
-            
-            // This array will always be these 3 choices
-            const computerChoice = ["rock", "paper", "scissors"];
 
+        var playerPoints = 0;
+        var computerPoints = 0;
 
-            const playerchoice = document.getElementById('choice');
-
-            // created an array to call the computer's choice
-            function computerPlay() {
-
-                // variable that holds the index to the choice in the array
-                // Math.random() * the array length will have a random of 3
-                // added the math.floor so it keeps the number whole
-                const randomChoice = Math.floor(Math.random() * computerChoice.length);
-
-                // returns the choice from the random equation
-                return computerChoice[randomChoice];
-
-            }
-
-            function playRound(playerAnswer, computerSelection) {
+        do {
+             // This array will always be these 3 choices
+                const computerChoice = ["rock", "paper", "scissors"];
+                const playerchoice = document.getElementById('choice');
                 
-                if (playerAnswer == 'rock' && computerSelection == 'scissors') {
-                    console.log('player wins');
-                }
-                else if (playerAnswer == 'paper' && computerSelection == 'rock') {
-                    console.log('player wins');
-                }
-                else if (playerAnswer == 'scissors' && computerSelection == 'paper') {
-                    console.log('player wins');
-                }
-                else {
-                    console.log('computer wins');
+
+                // created an array to call the computer's choice
+                function computerPlay() {
+
+                    // variable that holds the index to the choice in the array
+                    // Math.random() * the array length will have a random of 3
+                    // added the math.floor so it keeps the number whole
+                    const randomChoice = Math.floor(Math.random() * computerChoice.length);
+
+                    // returns the choice from the random equation
+                    return computerChoice[randomChoice];
+
                 }
 
-            }
-            
-            const computerSelection = computerPlay();
-
-            // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
-
-            const playerSelection = choice.addEventListener('click', (event) => {
-
-                // Making sure that we are clicking and targetting the buttons within the choice div
-                // return if it didn't catch the button node Name
-                const isButton = event.target.nodeName === 'BUTTON';
-                if (!isButton) {
-                    return;
-                }
-                // storing the event target id which should be the choices
-                let playerAnswer = event.target.id
-                let type = typeof playerAnswer;
-                console.log(type);
+                function givePlayerPoints(point) {
+                    playerPoints += point;
+                    console.log(playerPoints);
                 
-                console.log(playerAnswer);
-                playRound(playerAnswer, computerSelection);
-            })
+                }
 
-           
-            console.log(computerSelection);
+                function giveComputerPoints(point) {
+                    computerPoints += point;
+                    console.log(computerPoints);
+                }
+    
+                function playRound(playerAnswer, computerSelection) {
+                    
+                    if (playerAnswer == 'rock' && computerSelection == 'scissors') {
+                        console.log('player wins');
+                        givePlayerPoints(1);
+                    }
+                    else if (playerAnswer == 'paper' && computerSelection == 'rock') {
+                        console.log('player wins');
+                        givePlayerPoints(1);
+                    }
+                    else if (playerAnswer == 'scissors' && computerSelection == 'paper') {
+                        console.log('player wins');
+                        givePlayerPoints(1);
+                    }
+                    else if (playerAnswer == computerSelection) {
+                        console.log('tie');
+                    }
+                    else {
+                        console.log('computer wins');
+                        giveComputerPoints(1);
+                    }
+
+                }
+
+                // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
+
+                const playerSelection = choice.addEventListener('click', (event) => {
+
+                    // Making sure that we are clicking and targetting the buttons within the choice div
+                    // return if it didn't catch the button node Name
+                    const isButton = event.target.nodeName === 'BUTTON';
+                    if (!isButton) {
+                        return;
+                    }
+                    // storing the event target id which should be the choices
+                    let playerAnswer = event.target.id
+
+                    const computerSelection = computerPlay();
+                    console.log(playerAnswer);
+                    console.log(computerSelection);
+
+                    playRound(playerAnswer, computerSelection);
+                })
+
+
+            
+                
+
+        }
+        while (!playerPoints == 4 || !computerPoints == 4);
             
 
 
