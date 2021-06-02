@@ -29,71 +29,35 @@
 
         </footer>
         <script>
+            var totalPlayerWins = 0;
+            var totalComputerWins = 0;
+            var playerPoints = 0;
+            var computerPoints = 0;
+            // This array will always be these 3 choices
+            const computerChoice = ["rock", "paper", "scissors"];
+            const playerchoice = document.getElementById('choice');
 
-        var playerPoints = 0;
-        var computerPoints = 0;
 
-        do {
-             // This array will always be these 3 choices
-                const computerChoice = ["rock", "paper", "scissors"];
-                const playerchoice = document.getElementById('choice');
-                
+            // created an array to call the computer's choice
+            function computerPlay() {
 
-                // created an array to call the computer's choice
-                function computerPlay() {
+                // variable that holds the index to the choice in the array
+                // Math.random() * the array length will have a random of 3
+                // added the math.floor so it keeps the number whole
+                const randomChoice = Math.floor(Math.random() * computerChoice.length);
 
-                    // variable that holds the index to the choice in the array
-                    // Math.random() * the array length will have a random of 3
-                    // added the math.floor so it keeps the number whole
-                    const randomChoice = Math.floor(Math.random() * computerChoice.length);
+                // returns the choice from the random equation
+                return computerChoice[randomChoice];
 
-                    // returns the choice from the random equation
-                    return computerChoice[randomChoice];
+            }
 
-                }
+            // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
 
-                function givePlayerPoints(point) {
-                    playerPoints += point;
-                    console.log(playerPoints);
-                
-                }
+            const playerSelection = choice.addEventListener('click', (event) => {
 
-                function giveComputerPoints(point) {
-                    computerPoints += point;
-                    console.log(computerPoints);
-                }
-    
-                function playRound(playerAnswer, computerSelection) {
-                    
-                    if (playerAnswer == 'rock' && computerSelection == 'scissors') {
-                        console.log('player wins');
-                        givePlayerPoints(1);
-                    }
-                    else if (playerAnswer == 'paper' && computerSelection == 'rock') {
-                        console.log('player wins');
-                        givePlayerPoints(1);
-                    }
-                    else if (playerAnswer == 'scissors' && computerSelection == 'paper') {
-                        console.log('player wins');
-                        givePlayerPoints(1);
-                    }
-                    else if (playerAnswer == computerSelection) {
-                        console.log('tie');
-                    }
-                    else {
-                        console.log('computer wins');
-                        giveComputerPoints(1);
-                    }
-
-                }
-
-                // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
-
-                const playerSelection = choice.addEventListener('click', (event) => {
-
-                    // Making sure that we are clicking and targetting the buttons within the choice div
-                    // return if it didn't catch the button node Name
-                    const isButton = event.target.nodeName === 'BUTTON';
+                // Making sure that we are clicking and targetting the buttons within the choice div
+                // return if it didn't catch the button node Name
+                const isButton = event.target.nodeName === 'BUTTON';
                     if (!isButton) {
                         return;
                     }
@@ -105,19 +69,65 @@
                     console.log(computerSelection);
 
                     playRound(playerAnswer, computerSelection);
-                })
+            })
 
+            // functions created to give computers and players points by calling the function and incrementing the player Points
 
+            function givePlayerPoints() {
+                playerPoints++;
+                console.log(playerPoints);
+                    
+            }
+
+            function giveComputerPoints() {
+                computerPoints++;
+                console.log(computerPoints);
+            }
+        
+            function playRound(playerAnswer, computerSelection) {
+                        
+                if (playerAnswer == 'rock' && computerSelection == 'scissors') {
+                    givePlayerPoints();
+                    console.log('player wins');
+                }
+                else if (playerAnswer == 'paper' && computerSelection == 'rock') {
+                    console.log('player wins');
+                    givePlayerPoints();
+                }
+                else if (playerAnswer == 'scissors' && computerSelection == 'paper') {
+                    givePlayerPoints();
+                    console.log('player wins');
+                }
+                else if (playerAnswer == computerSelection) {
+                    console.log('tie');
+                }
+                else {
+                    console.log('computer wins');
+                    giveComputerPoints();
+                }
             
-                
+            if (playerPoints == 4) {
+                console.log('Humans win this round');
+                totalPlayerWins++;
+                playerPoints = 0;
+                ComputerPoints = 0;
+                console.log('total computer wins: ' + totalComputerWins);
+                console.log('total Player wins: ' + totalPlayerWins);
+                console.log('playerPoints = ' + playerPoints);
+                console.log('Computerpoints = ' + computerPoints);
+            } 
+            if (computerPoints == 4) {
+                console.log('Computers win this round');
+                totalComputerWins++;
+                computerPoints = 0;
+                playerPoints = 0;
+                console.log('total computer wins: ' + totalComputerWins);
+                console.log('total Player wins: ' + totalPlayerWins);
+                console.log('Computerpoints = ' + computerPoints);
+                console.log('playerPoints = ' + playerPoints);
+            } 
 
-        }
-        while (!playerPoints == 4 || !computerPoints == 4);
-            
-
-
-
-
+            }
         </script>
     </body>
 </html>
