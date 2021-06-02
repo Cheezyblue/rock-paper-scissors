@@ -8,6 +8,7 @@
         <meta name="author" content="Frank Nguyen"> 
         <title>Rock-Paper-Scissors</title>
         <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
         <header>
@@ -18,10 +19,17 @@
         <main>
             <section>
                 <h1>Rock-Paper-Scissors</h1>
-                <div id="choice">
-                    <button id="rock" value="rock">Rock</button>
-                    <button id="paper" value="paper">Paper</button>
-                    <button id="scissors" value="scissors">Scissors</button>
+                <div class="scoreboard">
+                    <div id="playerScore">0</div>
+                    <div id="computerScore">0</div>
+                </div>
+                <div class="battleScene">
+
+                </div>
+                <div id="choice" class="choice">
+                    <button id="rock" class="rock background" value="rock"></button>
+                    <button id="paper" class="paper background" value="paper"></button>
+                    <button id="scissors" class="scissors background" value="scissors"></button>
                 </div>
             </section>
         </main>
@@ -35,7 +43,7 @@
             var computerPoints = 0;
             // This array will always be these 3 choices
             const computerChoice = ["rock", "paper", "scissors"];
-            const playerchoice = document.getElementById('choice');
+            const playerChoice = document.getElementById('choice');
 
 
             // created an array to call the computer's choice
@@ -53,7 +61,7 @@
 
             // let a variable store the event of the user clicking on either of the three choices: rock, paper or scissors
 
-            const playerSelection = choice.addEventListener('click', (event) => {
+            const playerSelection = playerChoice.addEventListener('click', (event) => {
 
                 // Making sure that we are clicking and targetting the buttons within the choice div
                 // return if it didn't catch the button node Name
@@ -64,10 +72,10 @@
                     // storing the event target id which should be the choices
                     let playerAnswer = event.target.id
 
+                    // Once the player chooses, we will have the computer choose right after
                     const computerSelection = computerPlay();
-                    console.log(playerAnswer);
-                    console.log(computerSelection);
 
+                    // sending both player and computer answer into the playRound function
                     playRound(playerAnswer, computerSelection);
             })
 
@@ -75,15 +83,28 @@
 
             function givePlayerPoints() {
                 playerPoints++;
+                // updates score for player
                 console.log(playerPoints);
-                    
+                updatePlayerScore();                 
             }
 
             function giveComputerPoints() {
                 computerPoints++;
+                // updates score for computer
+                updateComputerScore();
                 console.log(computerPoints);
+
+            }
+
+            function updatePlayerScore(){
+                document.getElementById("playerScore").innerHTML = playerPoints; 
+            }
+
+            function updateComputerScore(){
+                document.getElementById("computerScore").innerHTML = computerPoints;
             }
         
+            // this function will check which choice player chose, if the player choice did not meet any of the win conditions. the point will be given to the CPU
             function playRound(playerAnswer, computerSelection) {
                         
                 if (playerAnswer == 'rock' && computerSelection == 'scissors') {
@@ -106,21 +127,27 @@
                     giveComputerPoints();
                 }
             
+                // if player points reach 4, reset counter, add to player total wins
             if (playerPoints == 4) {
                 console.log('Humans win this round');
                 totalPlayerWins++;
                 playerPoints = 0;
-                ComputerPoints = 0;
+                computerPoints = 0;
+                updatePlayerScore(); 
+                updateComputerScore();
                 console.log('total computer wins: ' + totalComputerWins);
                 console.log('total Player wins: ' + totalPlayerWins);
                 console.log('playerPoints = ' + playerPoints);
                 console.log('Computerpoints = ' + computerPoints);
             } 
+            // if computer points reach 4, reset counter, add to computer total wins
             if (computerPoints == 4) {
                 console.log('Computers win this round');
                 totalComputerWins++;
                 computerPoints = 0;
                 playerPoints = 0;
+                updatePlayerScore(); 
+                updateComputerScore();
                 console.log('total computer wins: ' + totalComputerWins);
                 console.log('total Player wins: ' + totalPlayerWins);
                 console.log('Computerpoints = ' + computerPoints);
