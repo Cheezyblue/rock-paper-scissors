@@ -7,19 +7,50 @@
         <meta name="description" content="This is a Rock-paper-scissors website to play against a computer. It is best of 5">
         <meta name="author" content="Frank Nguyen"> 
         <title>Rock-Paper-Scissors</title>
-        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="styles/reset.css">
     </head>
     <body>
         <header>
-
+            <nav>
+                
+            </nav>
         </header>
         <main>
             <section>
-
+                <h1>Rock-Paper-Scissors</h1>
+                <div></div>
             </section>
         </main>
         <footer>
-            
+
         </footer>
+        <script>
+            
+            // This array will always be these 3 choices
+            const computerChoice = ["rock", "paper", "scissors"];
+            
+            // created an array to call the computer's choice
+            function computerPlay() {
+
+                // variable that holds the index to the choice in the array
+                // Math.random() * the array length will have a random of 3
+                // added the math.floor so it keeps the number whole
+                const randomChoice = Math.floor(Math.random() * computerChoice.length);
+
+                // returns the choice from the random equation
+                return computerChoice[randomChoice];
+
+            }
+
+            console.log(computerPlay());
+
+            
+            function playRound(playerSelection, computerSelection) {
+
+            }
+
+
+
+        </script>
     </body>
 </html>
