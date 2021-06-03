@@ -4,6 +4,7 @@
 |------------------------------------------
 */
 
+
 $imgpath: '../images/';
 
 /*
@@ -12,7 +13,13 @@ $imgpath: '../images/';
 |------------------------------------------
 */
 
+.txt-a-ct {
+    text-align: center;
+}
 
+.is-flex {
+    display: flex;
+}
 
 /*
 |------------------------------------------
@@ -21,7 +28,6 @@ $imgpath: '../images/';
 */
 
 .header{
-    text-align: center;
     padding: 1rem;
 }
 
@@ -35,11 +41,6 @@ h1 {
 |  button
 |------------------------------------------
 */
-
-.choice {
-    display: flex;
-}
-
 .choice button {
     width: 90px;
     height: 90px;
@@ -52,12 +53,12 @@ h1 {
 }
 
 .scissors {
-    background-image: url('#{$imgpath}paper-1200px_1200px.png');
+    background-image: url('#{$imgpath}scissors-1200px_1200px.png');
    
 }
 
 .paper {
-    background-image: url('#{$imgpath}scissors-1200px_1200px.png');
+    background-image: url('#{$imgpath}paper-1200px_1200px.png');
     
 }
 .rock,
@@ -66,3 +67,39 @@ h1 {
     background-size: contain;
 }
 
+/*
+|------------------------------------------
+| Scoreboard
+|------------------------------------------
+*/
+
+.messageBoard{
+    margin: 20px 0;
+}
+
+.round {
+    margin: 20px 0;
+}
+
+.scoreboard {
+    justify-content: center;
+    .playerScore {
+        margin-right: 100px;
+    }
+}
+
+/*
+|------------------------------------------
+| Player Image Choice
+|------------------------------------------
+*/
+
+.gameChoices {
+    justify-content: center;
+}
+
+.gameChoices img {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+}

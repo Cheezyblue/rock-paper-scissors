@@ -11,21 +11,22 @@
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
-        <header class="header">
+        <header class="header txt-a-ct">
             <h1>Rock-Paper-Scissors</h1>
         </header>
         <main>
             <section>
-                <div id="messageBoard" class="messageBoard"></div>
-                <div id="round" class="round"></div>
-                <div class="scoreboard">
-                    <div id="playerScore">0</div>
+                <div id="messageBoard" class="messageBoard txt-a-ct"></div>
+                <div id="round" class="round txt-a-ct"></div>
+                <div class="scoreboard is-flex">
+                    <div id="playerScore" class="playerScore">0</div>
                     <div id="computerScore">0</div>
                 </div>
-                <div class="battleScene">
-
+                <div class="gameChoices is-flex">
+                    <div><img id=playerChoice></div>
+                    <div><img id="computerChoice"></div>
                 </div>
-                <div id="choice" class="choice">
+                <div id="choice" class="choice is-flex">
                     <button id="rock" class="rock background" value="rock"></button>
                     <button id="paper" class="paper background" value="paper"></button>
                     <button id="scissors" class="scissors background" value="scissors"></button>

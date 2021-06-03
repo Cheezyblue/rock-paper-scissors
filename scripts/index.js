@@ -35,6 +35,7 @@ const playerSelection = playerChoice.addEventListener('click', (event) => {
 
         // Once the player chooses, we will have the computer choose right after
         const computerSelection = computerPlay();
+        updateImage(playerAnswer, computerSelection);
 
         // sending both player and computer answer into the playRound function
         playRound(playerAnswer, computerSelection);
@@ -69,12 +70,22 @@ function updateComputerScore(){
     document.getElementById("computerScore").innerHTML = computerPoints;
 }
 
+// updates when the match is over
 function updateRound(message) {
     document.getElementById("round").innerHTML = message;
 }
 
+// updates the message round by round
 function updateMessageBoard(message) {
     document.getElementById("messageBoard").innerHTML = message;
+}
+
+function updateImage(playerAnswer, computerSelection) {
+
+    document.getElementById("playerChoice").src= "images/" + playerAnswer +"-1200px_1200px.png";  
+
+    document.getElementById("computerChoice").src= "images/" + computerSelection +"-1200px_1200px.png";  
+
 }
 
 // this function will check which choice player chose, if the player choice did not meet any of the win conditions. the point will be given to the CPU
@@ -82,8 +93,7 @@ function playRound(playerAnswer, computerSelection) {
             
     if ((playerAnswer == 'rock' && computerSelection == 'scissors') || (playerAnswer == 'paper' && computerSelection == 'rock') || (playerAnswer == 'scissors' && computerSelection == 'paper')) {
         givePoints('pwin');
-        console.log('player wins');
-        updateMessageBoard('player wins');
+        updateMessageBoard('Player Wins');
     }
     else if (playerAnswer == computerSelection) {
         updateMessageBoard('Tie');
@@ -96,7 +106,6 @@ function playRound(playerAnswer, computerSelection) {
 
     // if player points reach 4, reset counter, add to player total wins
 if (playerPoints == 4) {
-
     totalPlayerWins++;
     playerPoints = 0;
     computerPoints = 0;
