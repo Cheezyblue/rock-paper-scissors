@@ -3,8 +3,6 @@
 |  Global variables
 |------------------------------------------
 */
-
-
 $imgpath: '../images/';
 
 /*
@@ -19,6 +17,10 @@ $imgpath: '../images/';
 
 .is-flex {
     display: flex;
+}
+
+.justify-center {
+    justify-content: center;
 }
 
 /*
@@ -82,7 +84,6 @@ h1 {
 }
 
 .scoreboard {
-    justify-content: center;
     .playerScore {
         margin-right: 100px;
     }
@@ -94,12 +95,101 @@ h1 {
 |------------------------------------------
 */
 
-.gameChoices {
-    justify-content: center;
-}
-
 .gameChoices img {
     margin: 30px;
     width: 100px;
     height: 100px;
+}
+
+/*
+|------------------------------------------
+| media queries
+|------------------------------------------
+*/
+
+@media (min-width: 520px) {
+    h1 {
+        font-size: 2.7em;
+    }
+    .scoreboard {
+        font-size: 4rem;
+    }
+    .messageBoard {
+        font-size: 2rem;
+    }
+    .round {
+        font-size: 1.8rem;
+    }
+    .gameChoices img {
+        width: 180px;
+        height: 180px;
+    }
+    .choice button {
+        width: 130px;
+        height: 130px;
+
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.7em;
+    }
+    .scoreboard {
+        font-size: 4rem;
+    }
+    .messageBoard {
+        font-size: 2rem;
+    }
+    .round {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 992px) {
+    h1 {
+        font-size: 4rem;
+    }
+    .scoreboard {
+        font-size: 4rem;
+    }
+    .messageBoard {
+        font-size: 2rem;
+    }
+    .round {
+        font-size: 1.8rem;
+    }
+    .gameChoices img {
+        width: 180px;
+        height: 180px;
+    }
+    .choice button {
+        width: 130px;
+        height: 130px;
+
+    }
+}
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 3rem;
+    }
+    .scoreboard {
+        font-size: 2.0rem;
+    }
+    .messageBoard {
+        font-size: 2.0rem;
+    }
+    .round {
+        font-size: 1.5rem;
+    }
+    .gameChoices img {
+        width: 230px;
+        height: 230px;
+    }
+    .choice button {
+        width: 180px;
+        height: 180px;
+
+    }
 }

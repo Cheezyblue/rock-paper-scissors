@@ -1,3 +1,4 @@
+// Variables that are constantly changing so they can be global
 var totalPlayerWins = 0;
 var totalComputerWins = 0;
 var playerPoints = 0;
@@ -42,7 +43,6 @@ const playerSelection = playerChoice.addEventListener('click', (event) => {
 })
 
 // functions created to give computers and players points by calling the function and incrementing the player Points
-
 function givePoints(winner) {
 
     // sends pwin (player) or cwin (cpu) and awards points and updating the scoreboard
@@ -80,6 +80,7 @@ function updateMessageBoard(message) {
     document.getElementById("messageBoard").innerHTML = message;
 }
 
+// takes the player answer and computer answer and updates the image by the choice
 function updateImage(playerAnswer, computerSelection) {
 
     document.getElementById("playerChoice").src= "images/" + playerAnswer +"-1200px_1200px.png";  
